@@ -1,15 +1,16 @@
 import { View, Pressable, Image, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const AssetCard = ({dict, item}) => {
+const BlogCard = ({dict, item}) => {
   const navigation = useNavigation();
+
   const onBlogSelect = () => {
     navigation.navigate('Blog',{
       screen: 'Blog',
       params: {
         item: item  
       }
-      });
+    })
   }
 
   return (
@@ -32,7 +33,7 @@ const AssetCard = ({dict, item}) => {
   )
 }
 
-export default AssetCard
+export default BlogCard
 
 const styles = StyleSheet.create({
   outerContainer: {

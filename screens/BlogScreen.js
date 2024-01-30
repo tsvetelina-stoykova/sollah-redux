@@ -7,12 +7,13 @@ import RelatedAsset from '../UI/RelatedAsset';
 
 const BlogScreen = ({route}) => {
   const dict = useSelector((state) => state.dict);
-  const item = route.params.item;
+  const item = route.params.params.item;
   const { width } = useWindowDimensions();
   const related_asset = dict[item].asset_ids;
 
   return (
     <ScrollView>
+      <Text> One Blog</Text>
       <Text>{dict[item].title}</Text>
       <Image
           style={styles.image}
@@ -25,7 +26,7 @@ const BlogScreen = ({route}) => {
         />  
       </View>
       <View>
-        {related_asset.map(asset => <RelatedAsset key={asset.index} />)}
+        {related_asset.map(a => <RelatedAsset key={a} />)}
       </View>  
     </ScrollView>
   )

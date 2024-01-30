@@ -2,7 +2,7 @@ import { StyleSheet, ActivityIndicator, FlatList} from 'react-native';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchBlogs from '../store/fetchBlogs';
-import AssetCard from '../UI/AssetCard';
+import BlogCard from '../UI/BlogCard';
 
 const BlogsScreen = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const BlogsScreen = () => {
 
   const renderBlogItem = ({item, index}) => {
     return (       
-        <AssetCard dict={dict} item={item} index={index}/>
+        <BlogCard dict={dict} item={item} index={index}/>
     )
   }
 
