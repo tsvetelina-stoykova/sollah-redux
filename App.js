@@ -6,8 +6,8 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import store from './store/store';
 import BlogsScreen from './screens/BlogsScreen'
-import BlogScreen from './screens/BlogScreen'
-import AssetsListScreen from './screens/AssetsListScreen'
+import BlogDetailsScreen from './screens/BlogDetailsScreen'
+import AssetsScreen from './screens/AssetsScreen'
 import AssetDetailsScreen from './screens/AssetDetailsScreen';
 
 const BottomTabs = createBottomTabNavigator();
@@ -15,14 +15,14 @@ const Stack = createNativeStackNavigator();
 
 const AssetsStack = () => {
   return <Stack.Navigator>
-    <Stack.Screen name="AssetsListScreen" component={AssetsListScreen}/>
+    <Stack.Screen name="AssetsScreen" component={AssetsScreen}/>
     <Stack.Screen name="AssetDetailsScreen" component={AssetDetailsScreen}/>
   </Stack.Navigator>
 }
 const BlogsStack = () => {
   return <Stack.Navigator>
     <Stack.Screen name="BlogsScreen" component={BlogsScreen}/>
-    <Stack.Screen name="Blog" component={BlogScreen}/>
+    <Stack.Screen name="Blog" component={BlogDetailsScreen}/>
   </Stack.Navigator>
 }
 

@@ -5,24 +5,24 @@ import RenderHtml from 'react-native-render-html';
 
 import RelatedAsset from '../UI/RelatedAsset';
 
-const BlogScreen = ({route}) => {
+const BlogDetailsScreen = ({route}) => {
   const dict = useSelector((state) => state.dict);
-  const item = route.params.params.item;
+  const blogId = route.params.blogId;
   const { width } = useWindowDimensions();
-  const related_asset = dict[item].asset_ids;
+  const related_asset = dict[blogId].asset_ids;
 
   return (
     <ScrollView>
       <Text> One Blog</Text>
-      <Text>{dict[item].title}</Text>
+      <Text>{dict[blogId].title}</Text>
       <Image
           style={styles.image}
-          source={{uri: dict[item].thumb_url}}
+          source={{uri: dict[blogId].thumb_url}}
       />
       <View>
         <RenderHtml
           contentWidth={width}
-          source={{html: dict[item].body}}
+          source={{html: dict[blogId].body}}
         />  
       </View>
       <View>
@@ -32,7 +32,7 @@ const BlogScreen = ({route}) => {
   )
 }
 
-export default BlogScreen;
+export default BlogDetailsScreen;
 
 const styles = StyleSheet.create({
   image: {

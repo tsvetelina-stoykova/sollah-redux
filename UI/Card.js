@@ -1,23 +1,11 @@
 import { View, Pressable, Image, Text, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-const BlogCard = ({dict, item}) => {
-  const navigation = useNavigation();
-
-  const onBlogSelect = () => {
-    navigation.navigate('Blog',{
-      screen: 'Blog',
-      params: {
-        item: item  
-      }
-    })
-  }
-
+const Card = ({dict, item, onPress}) => {
   return (
     <View style={styles.outerContainer}>
       <Pressable style={({pressed}) => [
         styles.container, pressed ? styles.pressedButton : null]}
-        onPress={onBlogSelect}
+        onPress={onPress}
       >
         <Image
           style={styles.image}
@@ -33,7 +21,7 @@ const BlogCard = ({dict, item}) => {
   )
 }
 
-export default BlogCard
+export default Card
 
 const styles = StyleSheet.create({
   outerContainer: {

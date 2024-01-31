@@ -1,20 +1,29 @@
 import { StyleSheet, ActivityIndicator, FlatList} from 'react-native';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import fetchBlogs from '../store/fetchBlogs';
-import BlogCard from '../UI/BlogCard';
 
-const BlogsScreen = () => {
+import fetchBlogs from '../store/fetchBlogs';
+import Card from '../UI/Card';
+
+const BlogsScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const dict = useSelector((state) => state.dict);
   const index = useSelector((state) => state.index);
   const loading = useSelector((state) => state.pending);
-  
+
   useEffect(() => {dispatch(fetchBlogs())}, []);
 
-  const renderBlogItem = ({item, index}) => {
+  const renderOneBlog = (itemData) => {
+    const onBlogSelect = () => {
+      navigation.navigate('Blog', {blogId: itemData.item})
+    }
     return (       
-        <BlogCard dict={dict} item={item} index={index}/>
+        <Card 
+          dict={dict} 
+          item={itemData.item} 
+          index={index} 
+          onPress={onBlogSelect}
+        />
     )
   }
 
@@ -24,7 +33,7 @@ const BlogsScreen = () => {
           ? <ActivityIndicator style={styles.loader} size="large" />
           : <FlatList
              data={index}
-             renderItem={renderBlogItem}          
+             renderItem={renderOneBlog}          
           ></FlatList>
         }
     </>
