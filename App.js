@@ -8,6 +8,7 @@ import store from './store/store';
 import BlogsScreen from './screens/BlogsScreen'
 import BlogDetailsScreen from './screens/BlogDetailsScreen'
 import AssetsScreen from './screens/AssetsScreen'
+import AssetScreen from './screens/AssetScreen';
 import AssetDetailsScreen from './screens/AssetDetailsScreen';
 
 const BottomTabs = createBottomTabNavigator();
@@ -16,6 +17,7 @@ const Stack = createNativeStackNavigator();
 const AssetsStack = () => {
   return <Stack.Navigator>
     <Stack.Screen name="AssetsScreen" component={AssetsScreen}/>
+    <Stack.Screen name="AssetScreen" component={AssetScreen}/>
     <Stack.Screen name="AssetDetailsScreen" component={AssetDetailsScreen}/>
   </Stack.Navigator>
 }

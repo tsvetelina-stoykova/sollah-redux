@@ -7,8 +7,8 @@ import Card from '../UI/Card';
 
 const BlogsScreen = ({navigation}) => {
   const dispatch = useDispatch();
-  const dict = useSelector((state) => state.dict);
-  const index = useSelector((state) => state.index);
+  const dict = useSelector((state) => state.blog.dict);
+  const index = useSelector((state) => state.blog.index);
   const loading = useSelector((state) => state.pending);
 
   useEffect(() => {dispatch(fetchBlogs())}, []);

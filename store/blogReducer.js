@@ -5,22 +5,22 @@ const initialState = {
   error: null
 };
 
-const reducer = (state = initialState, action) => {
+const blog = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_ASSETS_PENDING':
+    case 'FETCH_BLOGS_PENDING':
       return {
         ...state,
         pending: true,
         error: null
       };
-    case 'FETCH_ASSETS_SUCCESS':
+    case 'FETCH_BLOGS_SUCCESS':
       return {
         pending: false,
         dict: action.dict,
         index: action.index,
         error: null
       };
-    case 'FETCH_ASSETS_ERROR':
+    case 'FETCH_BLOGS_ERROR':
       return {
         dict: '',
         index: '',
@@ -32,4 +32,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer;
+export default blog;

@@ -6,7 +6,7 @@ import RenderHtml from 'react-native-render-html';
 import RelatedAsset from '../UI/RelatedAsset';
 
 const BlogDetailsScreen = ({route}) => {
-  const dict = useSelector((state) => state.dict);
+  const dict = useSelector((state) => state.blog.dict);
   const blogId = route.params.blogId;
   const { width } = useWindowDimensions();
   const related_asset = dict[blogId].asset_ids;

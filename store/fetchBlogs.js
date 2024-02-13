@@ -1,6 +1,6 @@
 function fetchBlogs() {
   return async (dispatch) => {
-      dispatch({type: 'FETCH_ASSETS_PENDING'});
+      dispatch({type: 'FETCH_BLOGS_PENDING'});
 
       try {
           const res = await fetch('https://sollahlibrary.com/mapi/4/blogs');
@@ -13,13 +13,13 @@ function fetchBlogs() {
           }
          
           if(Array.isArray(index)) {
-              dispatch({type: 'FETCH_ASSETS_SUCCESS', index, dict})
+              dispatch({type: 'FETCH_BLOGS_SUCCESS', index, dict})
           } else {
               throw new Error('JSON response is wrong data format.');
           }
       }
       catch(err) {
-          dispatch({type: 'FETCH_ASSETS_ERROR', error: err.message});
+          dispatch({type: 'FETCH_BLOGS_ERROR', error: err.message});
           console.log('ERROR', err.message)
       }
   }

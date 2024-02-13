@@ -7,15 +7,15 @@ import Card from '../UI/Card';
 
 const AssetsScreen = ({navigation}) => {
   const dispatch = useDispatch();
-  const dict = useSelector((state) => state.dict);
-  const index = useSelector((state) => state.index);
+  const dict = useSelector((state) => state.assets.dict);
+  const index = useSelector((state) => state.assets.index);
   const loading = useSelector((state) => state.pending);
 
   useEffect(() => {dispatch(fetchAssets())}, []);
 
   const renderOneAsset = (itemData) => {
     const onAssetSelect = () => {
-      navigation.navigate('AssetDetailsScreen', {assetId: itemData.item})
+      navigation.navigate('AssetScreen', {assetId: itemData.item})
     }
     return (
       <Card
