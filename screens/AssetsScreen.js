@@ -15,7 +15,7 @@ const AssetsScreen = ({navigation}) => {
 
   const renderOneAsset = (itemData) => {
     const onAssetSelect = () => {
-      navigation.navigate('AssetScreen', {assetId: itemData.item})
+      navigation.navigate('AssetScreen', {assetId: itemData.item, assetName: dict[itemData.item].title})
     }
     return (
       <Card
