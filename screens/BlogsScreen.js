@@ -2,7 +2,7 @@ import { StyleSheet, ActivityIndicator, FlatList} from 'react-native';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import fetchBlogs from '../store/fetchBlogs';
+import { fetchBlogs } from '../store/api';
 import Card from '../UI/Card';
 
 const BlogsScreen = ({navigation}) => {

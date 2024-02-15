@@ -2,7 +2,7 @@ import { Text, StyleSheet, ActivityIndicator, FlatList } from 'react-native';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import fetchAssets from '../store/fetchAssets';
+import { fetchAssets } from '../store/api';
 import Card from '../UI/Card';
 
 const AssetsScreen = ({navigation}) => {
