@@ -1,4 +1,4 @@
-import { Text, StyleSheet, ActivityIndicator, FlatList } from 'react-native';
+import { Text, StyleSheet, ActivityIndicator, FlatList, Button } from 'react-native';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -13,9 +13,13 @@ const AssetsScreen = ({navigation}) => {
 
   useEffect(() => {dispatch(fetchAssets())}, []);
 
+  useEffect( () => {
+    navigation.setOptions({headerTitle: () => <Button title="dasdasd" />})
+  }, [navigation])
+
   const renderOneAsset = (itemData) => {
     const onAssetSelect = () => {
-      navigation.navigate('AssetScreen', {assetId: itemData.item, assetName: dict[itemData.item].title})
+      navigation.navigate('AssetScreen', {assetId: itemData.item})
     }
     return (
       <Card
@@ -34,7 +38,7 @@ const AssetsScreen = ({navigation}) => {
         : <FlatList
             data={index}
             renderItem={renderOneAsset}
-           ></FlatList> 
+          ></FlatList> 
       }
     </>
   )

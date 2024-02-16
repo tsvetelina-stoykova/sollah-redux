@@ -1,15 +1,21 @@
 import { View, Text, StyleSheet, ScrollView, Pressable, Image } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 
 import {fetchOneAsset} from '../store/api';
 import AssetComponent from '../UI/AssetComponent'
 
 const AssetScreen = ({route, navigation}) => {
-  const assetId = route.params.assetId;
   const dispatch = useDispatch();
+  const assetId = route.params.assetId;
   const asset = useSelector((state) => state.asset.asset);
+  
   useEffect(() => {dispatch(fetchOneAsset(assetId))}, []);
+
+  useLayoutEffect( () => {
+    navigation.setOptions({title: asset.title, headerBackTitleVisible: false});
+  }, [navigation, asset] )
+  
 
   const onDetailsSelect = () => {
     navigation.navigate('AssetDetailsScreen')

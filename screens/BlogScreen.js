@@ -1,16 +1,23 @@
+
+import { useEffect } from 'react';
 import { Text, View, Image, StyleSheet, ScrollView } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useWindowDimensions } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 
 import RelatedAsset from '../UI/RelatedAsset';
 
-const BlogScreen = ({route}) => {
+const BlogScreen = ({route, navigation}) => {
   const dict = useSelector((state) => state.blog.dict);
   const blogId = route.params.blogId;
-  const blogName = route.params.blogName;
   const { width } = useWindowDimensions();
   const related_asset = dict[blogId].asset_ids;
+
+  useEffect(() => {
+    navigation.setOptions({title: "Blog Post", 
+                        headerBackTitleVisible: false,
+                      })
+  }, [navigation])                    
 
   return (
     <ScrollView>

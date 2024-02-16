@@ -15,7 +15,7 @@ const BlogsScreen = ({navigation}) => {
 
   const renderOneBlog = (itemData) => {
     const onBlogSelect = () => {
-      navigation.navigate('Blog', {blogId: itemData.item, blogName: dict[itemData.item].title})
+      navigation.navigate('Blog', {blogId: itemData.item})
     }
     return (       
         <Card 

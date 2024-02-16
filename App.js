@@ -16,16 +16,16 @@ const Stack = createNativeStackNavigator();
 
 const AssetsStack = () => {
   return <Stack.Navigator>
-    <Stack.Screen name="AssetsScreen"  component={AssetsScreen} options={{ title: "" }}/>
+    <Stack.Screen name="AssetsScreen"  component={AssetsScreen} />
     <Stack.Screen 
       name="AssetScreen" 
       component={AssetScreen}
-      options={({route}) => {
-        const assetName = route.params.assetName;
-        return {
-          title: assetName
-        }
-      }} 
+      // options={({route}) => {
+      //   const assetName = route.params.assetName;
+      //   return {
+      //     title: assetName
+      //   }
+      // }} 
     />
     <Stack.Screen name="AssetDetailsScreen" component={AssetDetailsScreen}/>
   </Stack.Navigator>
@@ -36,7 +36,7 @@ const BlogsStack = () => {
     <Stack.Screen 
       name="Blog" 
       component={BlogScreen}
-      options={{title: "Blog Post"}} 
+      // options={{title: "Blog Post"}} 
     />
   </Stack.Navigator>
 }
