@@ -54,8 +54,7 @@ export default function App() {
               name='Assets'
               component={AssetsStack}
               options={{
-                headerShown: false,
-              
+                headerShown: false,             
               }}
             />
             <BottomTabs.Screen 
